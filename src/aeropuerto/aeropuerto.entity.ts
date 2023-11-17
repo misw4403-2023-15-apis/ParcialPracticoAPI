@@ -3,9 +3,6 @@ import { Column,Entity,JoinTable,ManyToMany,PrimaryGeneratedColumn} from 'typeor
 import { AerolineaEntity } from '../aerolinea/aerolinea.entity'; 
 
 @Entity()
-
-
-
 export class AeropuertoEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
