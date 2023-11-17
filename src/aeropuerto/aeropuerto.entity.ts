@@ -20,6 +20,5 @@ export class AeropuertoEntity {
     ciudad: string;
 
     @ManyToMany(() => AerolineaEntity, (aerolinea) => aerolinea.aeropuertos)
-    @JoinTable()
     aerolineas: AerolineaEntity[];
 }
