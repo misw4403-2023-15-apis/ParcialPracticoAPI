@@ -29,7 +29,7 @@ describe('AeropuertoService', () => {
     for (let i = 0; i < 5; i++) {
       const aeropuerto: AeropuertoEntity = await repository.save({
         nombre: faker.word.adjective(),
-        codigo: faker.airline.flightNumber(),
+        codigo: "BOG",
         pais: faker.location.country(),
         ciudad: faker.location.city(),        
       });
@@ -65,7 +65,7 @@ describe('AeropuertoService', () => {
     const aeropuerto: AeropuertoEntity = {
       id:"",
       nombre: faker.word.adjective(),
-      codigo: faker.airline.flightNumber(),
+      codigo: "BOG",
       pais: faker.location.country(),
       ciudad: faker.location.city(), 
       aerolineas: []  
@@ -85,13 +85,17 @@ describe('AeropuertoService', () => {
   it('update should modify an airport', async () => {
     const aeropuerto: AeropuertoEntity = aeropuertoList[0];
     aeropuerto.nombre = "Nuevo nombre";
-    aeropuerto.codigo = "Nuevo codigo";
+    aeropuerto.codigo = "PEI";
+    aeropuerto.pais = "Nuevo Pais";
+    aeropuerto.ciudad = "Nueva Ciudad";
      const updatedAeropuerto: AeropuertoEntity = await service.update(aeropuerto.id, aeropuerto);
     expect(updatedAeropuerto).not.toBeNull();
      const storedAeropuerto: AeropuertoEntity = await repository.findOne({ where: { id: aeropuerto.id } })
     expect(storedAeropuerto).not.toBeNull();
     expect(storedAeropuerto.nombre).toEqual(aeropuerto.nombre)
     expect(storedAeropuerto.codigo).toEqual(aeropuerto.codigo)
+    expect(storedAeropuerto.pais).toEqual(aeropuerto.pais)
+    expect(storedAeropuerto.ciudad).toEqual(aeropuerto.ciudad)
   });
 
   it('update should throw an exception for an invalid airport', async () => {

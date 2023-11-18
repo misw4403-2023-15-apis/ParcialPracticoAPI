@@ -25,6 +25,9 @@ export class AeropuertoService {
     }
 
     async create(aeropuerto: AeropuertoEntity): Promise<AeropuertoEntity> {
+        if (!aeropuerto.codigo || aeropuerto.codigo.length !== 3) {
+            throw new BusinessLogicException('El campo Codigo debe tener exactamente tres caracteres', BusinessError.PRECONDITION_FAILED);
+        }
         return await this.aeropuertoRepository.save(aeropuerto);
     }
 
@@ -32,6 +35,10 @@ export class AeropuertoService {
         const persistedAeropuerto: AeropuertoEntity = await this.aeropuertoRepository.findOne({where:{id}});
         if (!persistedAeropuerto)
           throw new BusinessLogicException("No se encuentra un aeropuerto con este Id", BusinessError.NOT_FOUND);
+
+        if (!aeropuerto.codigo || aeropuerto.codigo.length !== 3) {
+            throw new BusinessLogicException('El campo Codigo debe tener exactamente tres caracteres', BusinessError.PRECONDITION_FAILED);
+        }  
         
         return await this.aeropuertoRepository.save({...persistedAeropuerto, ...aeropuerto});
     }

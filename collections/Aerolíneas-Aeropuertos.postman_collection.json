@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "a968c670-0032-4734-9321-5c5cfbcb7bd9",
+		"name": "Aerolíneas-Aeropuertos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20351712"
+	},
+	"item": [
+		{
+			"name": "Asociar Aeropuerto a Aerolinea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports/{{aeropuerto_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports",
+						"{{aeropuerto_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Asociar Aeropuerto Invalido a Aerolinea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Aeropuertos de una Aerolinea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener un Aeropuerto de una Aerolinea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports/{{aeropuerto_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports",
+						"{{aeropuerto_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Aeropuerto Invalido de Aerolinea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Aeropuertos de una Aerolinea",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"{{aeropuerto_id_2}}\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Aeropuerto Invalido de Aerolinea",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   {\r\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n   }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Aeropuerto a Aerolinea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports/{{aeropuerto_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports",
+						"{{aeropuerto_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Aeropuerto no Asociado Aerolinea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}/airports/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}",
+						"airports",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "aeropuerto_id",
+			"value": "8beea33c-fd19-4504-9687-08b76f57732c",
+			"type": "string"
+		},
+		{
+			"key": "aerolinea_id",
+			"value": "74e360ca-c2bf-436d-814a-489d98c1bc01",
+			"type": "string"
+		},
+		{
+			"key": "aeropuerto_id_2",
+			"value": "05e5a140-dfa9-47b6-b446-cf4359682223",
+			"type": "string"
+		}
+	]
+}

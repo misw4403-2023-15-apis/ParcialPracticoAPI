@@ -30,7 +30,7 @@ describe('AerolineaService', () => {
       const aerolinea: AerolineaEntity = await repository.save({
         nombre: faker.word.adjective(),
         descripcion: faker.lorem.sentence(),
-        fechaFundacion: faker.date.anytime(),
+        fechaFundacion: new Date("1929-03-05T12:00:00.000Z"),
         paginaWeb: faker.internet.url(),        
       });
       aerolineasList.push(aerolinea);
@@ -66,7 +66,7 @@ describe('AerolineaService', () => {
       id:"",
       nombre: faker.word.adjective(),
       descripcion: faker.lorem.sentence(),
-      fechaFundacion: faker.date.anytime(),
+      fechaFundacion: new Date("1929-03-05T12:00:00.000Z"),
       paginaWeb: faker.internet.url(),
       aeropuertos: []  
     }
@@ -86,18 +86,22 @@ describe('AerolineaService', () => {
     const aerolinea: AerolineaEntity = aerolineasList[0];
     aerolinea.nombre = "Nuevo nombre";
     aerolinea.descripcion = "Nueva descripcion";
+    aerolinea.fechaFundacion=  new Date("1929-03-05T12:00:00.000Z");
+    aerolinea.paginaWeb = "www.newPagina.com";
      const updatedAerolinea: AerolineaEntity = await service.update(aerolinea.id, aerolinea);
     expect(updatedAerolinea).not.toBeNull();
      const storedAerolinea: AerolineaEntity = await repository.findOne({ where: { id: aerolinea.id } })
     expect(storedAerolinea).not.toBeNull();
     expect(storedAerolinea.nombre).toEqual(aerolinea.nombre)
     expect(storedAerolinea.descripcion).toEqual(aerolinea.descripcion)
+    expect(storedAerolinea.fechaFundacion).toEqual(aerolinea.fechaFundacion)
+    expect(storedAerolinea.paginaWeb).toEqual(aerolinea.paginaWeb)
   });
 
   it('update should throw an exception for an invalid airline', async () => {
     let aerolinea: AerolineaEntity = aerolineasList[0];
     aerolinea = {
-      ...aerolinea, nombre: "Nuevo nombre", descripcion: "Nueva descripcion"
+      ...aerolinea, nombre: "Nuevo nombre", descripcion: "Nueva descripcion", fechaFundacion: new Date("1929-03-05T12:00:00.000Z"), paginaWeb: "www.newPagina.com"
     }
     await expect(() => service.update("0", aerolinea)).rejects.toHaveProperty("message", "No se encuentra una aerolinea con este Id")
   });

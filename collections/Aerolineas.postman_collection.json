@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "922a9595-ea28-4ef4-86e1-0f4fad8298e4",
+		"name": "Aerolineas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20351712"
+	},
+	"item": [
+		{
+			"name": "CreateAerolinea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"nombre\":\"LATAM\",\r\n      \"descripcion\":\"LATAM Airlines, anteriormente LAN Airlines, LAN-Chile y LATAM Chile, es una aerolínea de bandera chilena con sede en Santiago, Chile y una de las fundadoras de LATAM Airlines Group, el holding de aerolíneas más grande de América Latina\",\r\n      \"fechaFundacion\":\"1929-03-05 12:00:00\",\r\n      \"paginaWeb\": \"https://www.latamairlines.com/co/es\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateAerolineInvalida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"nombre\":\"LATAM\",\r\n      \"descripcion\":\"LATAM Airlines, anteriormente LAN Airlines, LAN-Chile y LATAM Chile, es una aerolínea de bandera chilena con sede en Santiago, Chile y una de las fundadoras de LATAM Airlines Group, el holding de aerolíneas más grande de América Latina\",\r\n      \"fechaFundacion\":\"2024-03-05 12:00:00\",\r\n      \"paginaWeb\": \"https://www.latamairlines.com/co/es\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAerolineas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAerolinea",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAerolineaInvalida",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAerolinea",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"LATAM\",\r\n    \"descripcion\": \"LATAM Airlines, anteriormente LAN Airlines, LAN-Chile y LATAM Chile, es una aerolínea de bandera chilena con sede en Santiago, Chile y una de las fundadoras de LATAM Airlines Group, el holding de aerolíneas más grande de América Latina\",\r\n    \"fechaFundacion\": \"1929-03-05T17:00:00.000Z\",\r\n    \"paginaWeb\": \"https://www.latamairlines.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateAerolineaInvalida",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"LATAM\",\r\n    \"descripcion\": \"LATAM Airlines, anteriormente LAN Airlines, LAN-Chile y LATAM Chile, es una aerolínea de bandera chilena con sede en Santiago, Chile y una de las fundadoras de LATAM Airlines Group, el holding de aerolíneas más grande de América Latina\",\r\n    \"fechaFundacion\": \"2024-03-05T17:00:00.000Z\",\r\n    \"paginaWeb\": \"https://www.latamairlines.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAerolinea",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolinea_id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolinea_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAerolineaInvalida",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:3000/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "aerolinea_id",
+			"value": "e57ab8b7-c44e-499f-8868-d9b72eb2b4d9",
+			"type": "string"
+		}
+	]
+}
